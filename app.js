@@ -24,9 +24,9 @@ app.use(function (req, res, next) {
     next();
   });
   
-app.listen(port, ()=> {
-    console.log(`api is up at http://localhost:${port}`)
-})
+  app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  });
 
 app.get(`/`, (req,res) => {
     res.send('mom said get yo money up.')
